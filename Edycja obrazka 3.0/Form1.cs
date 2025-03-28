@@ -2,6 +2,8 @@ namespace Edycja_obrazka_3._0
 {
     public partial class Form1 : Form
     {
+        private Bitmap originalImage = null;
+        private bool isGreenFilterApplied = false;
         public Form1()
         {
             InitializeComponent();
@@ -53,6 +55,36 @@ namespace Edycja_obrazka_3._0
             {
                 pictureBox.Image.RotateFlip(RotateFlipType.Rotate180FlipNone);
                 pictureBox.Refresh();
+            }
+        }
+        private void btnOnlyGreen_Click(object sender, EventArgs e)
+        {
+            if (pictureBox.Image == null) return;
+
+            if (!isGreenFilterApplied) // Jeœli filtr nie jest zastosowany, stosujemy go
+            {
+                originalImage = new Bitmap(pictureBox.Image); // Zapisujemy oryginalny obraz
+                Bitmap bmp = new Bitmap(originalImage);
+
+                for (int y = 0; y < bmp.Height; y++)
+                {
+                    for (int x = 0; x < bmp.Width; x++)
+                    {
+                        Color pixel = bmp.GetPixel(x, y);
+
+                        if (!(pixel.G > pixel.R && pixel.G > pixel.B))
+                        {
+                            bmp.SetPixel(x, y, Color.Black);
+                        }
+                    }
+                }
+                pictureBox.Image = bmp;
+                isGreenFilterApplied = true;
+            }
+            else // Jeœli filtr jest ju¿ zastosowany, przywracamy oryginalny obraz
+            {
+                pictureBox.Image = new Bitmap(originalImage);
+                isGreenFilterApplied = false;
             }
         }
     }

@@ -30,6 +30,10 @@
         {
             pictureBox = new PictureBox();
             btnLoad = new Button();
+            btnRotate = new Button();
+            rdo90 = new RadioButton();
+            rdo180 = new RadioButton();
+            rdo270 = new RadioButton();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -51,22 +55,78 @@
             btnLoad.UseVisualStyleBackColor = true;
             btnLoad.Click += btnLoad_Click;
             // 
+            // btnRotate
+            // 
+            btnRotate.BackColor = Color.IndianRed;
+            btnRotate.Location = new Point(84, 152);
+            btnRotate.Name = "btnRotate";
+            btnRotate.Size = new Size(112, 34);
+            btnRotate.TabIndex = 2;
+            btnRotate.Text = "Rotate";
+            btnRotate.UseVisualStyleBackColor = false;
+            btnRotate.Click += btnRotate_Click;
+            // 
+            // rdo90
+            // 
+            rdo90.AutoSize = true;
+            rdo90.BackColor = Color.IndianRed;
+            rdo90.Location = new Point(106, 24);
+            rdo90.Name = "rdo90";
+            rdo90.Size = new Size(76, 29);
+            rdo90.TabIndex = 3;
+            rdo90.TabStop = true;
+            rdo90.Text = "90 st";
+            rdo90.UseVisualStyleBackColor = false;
+            // 
+            // rdo180
+            // 
+            rdo180.AutoSize = true;
+            rdo180.BackColor = Color.IndianRed;
+            rdo180.Location = new Point(106, 59);
+            rdo180.Name = "rdo180";
+            rdo180.Size = new Size(86, 29);
+            rdo180.TabIndex = 4;
+            rdo180.TabStop = true;
+            rdo180.Text = "180 st";
+            rdo180.UseVisualStyleBackColor = false;
+            // 
+            // rdo270
+            // 
+            rdo270.AutoSize = true;
+            rdo270.BackColor = Color.IndianRed;
+            rdo270.Location = new Point(106, 94);
+            rdo270.Name = "rdo270";
+            rdo270.Size = new Size(86, 29);
+            rdo270.TabIndex = 5;
+            rdo270.TabStop = true;
+            rdo270.Text = "270 st";
+            rdo270.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(rdo270);
+            Controls.Add(rdo180);
+            Controls.Add(rdo90);
+            Controls.Add(btnRotate);
             Controls.Add(btnLoad);
             Controls.Add(pictureBox);
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private PictureBox pictureBox;
         private Button btnLoad;
+        private Button btnRotate;
+        private RadioButton rdo90;
+        private RadioButton rdo180;
+        private RadioButton rdo270;
     }
 }

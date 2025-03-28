@@ -34,6 +34,7 @@
             rdo90 = new RadioButton();
             rdo180 = new RadioButton();
             rdo270 = new RadioButton();
+            btnInvert = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -102,11 +103,23 @@
             rdo270.Text = "270 st";
             rdo270.UseVisualStyleBackColor = false;
             // 
+            // btnInvert
+            // 
+            btnInvert.BackColor = SystemColors.ActiveCaption;
+            btnInvert.Location = new Point(84, 204);
+            btnInvert.Name = "btnInvert";
+            btnInvert.Size = new Size(125, 36);
+            btnInvert.TabIndex = 6;
+            btnInvert.Text = "Invert Colors";
+            btnInvert.UseVisualStyleBackColor = false;
+            btnInvert.Click += btnInvert_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnInvert);
             Controls.Add(rdo270);
             Controls.Add(rdo180);
             Controls.Add(rdo90);
@@ -128,5 +141,6 @@
         private RadioButton rdo90;
         private RadioButton rdo180;
         private RadioButton rdo270;
+        private Button btnInvert;
     }
 }

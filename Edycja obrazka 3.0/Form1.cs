@@ -29,5 +29,22 @@ namespace Edycja_obrazka_3._0
                 pictureBox.Refresh();
             }
         }
+
+        private void btnInvert_Click(object sender, EventArgs e)
+        {
+            if (pictureBox.Image != null)
+            {
+                Bitmap bmp = new Bitmap(pictureBox.Image);
+                for (int y = 0; y < bmp.Height; y++)
+                {
+                    for (int x = 0; x < bmp.Width; x++)
+                    {
+                        Color pixel = bmp.GetPixel(x, y);
+                        bmp.SetPixel(x, y, Color.FromArgb(255 - pixel.R, 255 - pixel.G, 255 - pixel.B));
+                    }
+                }
+                pictureBox.Image = bmp;
+            }
+        }
     }
 }
